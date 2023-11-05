@@ -1,6 +1,7 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, render_template
 from flask_cors import CORS
 import os
+import sys
 
 app = Flask(__name__)
 CORS(app)
@@ -15,5 +16,7 @@ def index():
 
 
 if __name__ == '__main__':
-    # app.run(host='0.0.0.0', port=443, ssl_context=(ssl_cert_path, ssl_key_path))
-    app.run(host='0.0.0.0')
+    if '-server' in sys.argv:
+        app.run(host='0.0.0.0', port=443, ssl_context=(ssl_cert_path, ssl_key_path))
+    else:
+        app.run(host='0.0.0.0')

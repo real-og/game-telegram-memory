@@ -9,5 +9,5 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
+    print('starting memory game bot')
     asyncio.run(main())
-    
